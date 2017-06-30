@@ -1,43 +1,42 @@
-# Netlify CMS small-business template
+# Netlify CMS
 
-This is a small business template built with [Victor Hugo](https://github.com/netlify/victor-hugo) and [Netlify CMS](https://github.com/netlify/netlify-cms), designed and developed by [Darin Dimitroff](http://www.darindimitroff.com/), [spacefarm.digital](https://www.spacefarm.digital).
+A CMS for static site generators. Give non-technical users a simple way to edit
+and add content to any site built with a static site generator.
 
-## Getting started
+## How it works
 
-Use our deploy button to get your own copy of the repository:
+Netlify CMS is a single-page app that you pull into the `/admin` part of your site.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/netlify-templates/kaldi-hugo-cms-template)
+It presents a clean UI for editing content stored in a Git repository.
 
-Once that is done, you need to setup the GitHub integration for Netlify CMS.
+You setup a YAML config to describe the content model of your site, and typically
+tweak the main layout of the CMS a bit to fit your own site.
 
-Go to https://github.com/settings/developers and register a new application.
+When a user navigates to `/admin` they'll be prompted to login, and once authenticated
+they'll be able to create new content or edit existing content.
 
-Then go to the "Access" tab in your new Netlify site and add a GitHub authentication provider.
+Read more about Netlify CMS [Core Concepts](docs/intro.md).
 
-Once that's done, you'll be able to enter the CMS by going to the URL of your new site and appending `/admin`
+# Installation and Configuration
 
-## Local Development
+The Netlify CMS can be used in two different ways.
 
-Clone this repository, and run `yarn` or `npm install` from the new folder to install all required dependencies.
+* A Quick and easy install, that just requires you to create a single HTML file and a configuration file. All the CMS Javascript and CSS are loaded from a CDN.
+To learn more about this installation method, refer to the [Quick Start Guide](docs/quick-start.md)
+* A complete, more complex install, that gives you more flexibility but requires that you use a static site builder with a build system that supports npm packages.
 
-Then start the development server with `yarn start` or `npm start`.
+# Community
 
-## Layouts
+Netlify CMS has a [public Gitter channel](https://gitter.im/netlify/NetlifyCMS) where members of the community hang out and share things about the project.
 
-The template is based on small, content-agnostic partials that can be mixed and matched. The pre-built pages showcase just a few of the possible combinations. Refer to the `site/layouts/partials` folder for all available partials.
+# Change Log
 
-Use Hugo’s `dict` functionality to feed content into partials and avoid repeating yourself and creating discrepancies.
+This project adheres to [Semantic Versioning](http://semver.org/).  
+Every release is documented on the Github [Releases](https://github.com/netlify/netlify-cms/releases) page.
 
-## CSS
+# License
 
-The template uses a custom fork of Tachyons and PostCSS with cssnext and cssnano. To customize the template for your brand, refer to `src/css/imports/_variables.css` where most of the important global variables like colors and spacing are stored.
+Netlify CMS is released under the [MIT License](LICENSE).
+Please make sure you understand its [implications and guarantees](https://writing.kemitchell.com/2016/09/21/MIT-License-Line-by-Line.html).
 
-## SVG
 
-All SVG icons stored in `site/static/img/icons` are automatically optimized with SVGO (gulp-svgmin) and concatenated into a single SVG sprite stored as a a partial called `svg.html`. Make sure you use consistent icons in terms of viewport and art direction for optimal results. Refer to an SVG via the `<use>` tag like so:
-
-```
-<svg width="16px" height="16px" class="db">
-  <use xlink:href="#SVG-ID"></use>
-</svg>
-```
